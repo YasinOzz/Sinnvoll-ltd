@@ -1,0 +1,777 @@
+/* === Fonts === */
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-regular-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+:root {
+  --weis: #fff;
+  --grey: rgb(128, 128, 128);
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "roboto", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.header {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#video {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Navigation Styling */
+.navigation {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  z-index: 4;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5); /* Halbdurchsichtiger Hintergrund für bessere Sichtbarkeit */
+  border-radius: 0 0 5px 5px;
+  justify-content: flex-end;
+}
+
+#nav-button-list {
+  display: flex;
+  gap: 1rem;
+  padding-right: 3rem;
+}
+
+.nav-button-dienstleistung,
+.nav-button-kontakt,
+.nav-button-uns {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 4;
+}
+
+.nav-button-dienstleistung:hover,
+.nav-button-kontakt:hover,
+.nav-button-uns:hover {
+  background-color: rgb(202, 201, 201);
+}
+
+#header-text {
+  position: absolute;
+  left: 2rem;
+  margin-top: 1.2rem;
+  z-index: 5;
+  color: black;
+  font-size: 35px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Video Container */
+.video-container {
+  flex-grow: 1;
+  position: relative;
+}
+
+/* Container Styling für den Text und die Buttons */
+.header-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white; /* Textfarbe für bessere Sichtbarkeit */
+  z-index: 3; /* Text und Buttons uber dem Video */
+}
+
+.header-container > div > h1 {
+  font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text lesbarer machen */
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 20px;
+  z-index: 3;
+}
+
+.button-container button {
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: rgb(219, 218, 218);
+  color: black;
+}
+
+.header-container > div > p {
+  font-size: 25px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.Dienstleistungen-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Dienstleistungen-container > div > h2 {
+  font-size: 70px;
+  margin: 20px 10px;
+}
+
+.Dienstleistungen-container > div > p {
+  align-self: center;
+  font-size: 18px;
+  text-wrap: pretty;
+  padding: 1rem 6rem 1rem 6rem;
+  margin-bottom: 3rem;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-evenly; /* Lässt Platz zwischen den Karten */
+  gap: 2rem; /* Abstand zwischen den Karten */
+  margin: 0 auto;
+  width: 100%; /* Damit die Karten sich auf der gesamten Breite verteilen */
+}
+
+.card {
+  flex: 1; /* Jede Karte nimmt den gleichen Platz ein */
+  max-width: 26em; /* Maximale Breite für die Karten */
+  height: 30em; /* Gleiche Höhe für alle Karten */
+  transform-style: preserve-3d;
+  transition: 1s;
+  position: relative;
+  border: 2px solid;
+  border-radius: 2em;
+  background-color: #e9efec;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Zentriert den Inhalt vertikal */
+  align-items: center; /* Zentriert den Inhalt horizontal */
+  text-align: center;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.back > p {
+  font-weight: bold;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.front > p {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: rgba(255, 255, 255);
+  background-color: rgba(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.front > h5 {
+  text-wrap: "pretty";
+  text-align: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.front > h2 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.card-container > .card {
+  margin: 0 1rem;
+}
+
+.sinvoll-container {
+  height: 100vh;
+  width: 100%;
+  background-color: snow;
+  display: flex;
+  align-items: center;
+}
+
+.sinvoll-container > div > h1 {
+  font-size: 60px;
+  margin-left: 20px;
+}
+
+.sinvoll-container > div > p {
+  font-size: 18px;
+  padding: 0px 20px 20px 20px;
+  text-wrap: pretty;
+}
+
+.sinvoll-container > div > img {
+  width: 600px;
+  margin: 20px 30px;
+  border-radius: 1em;
+}
+
+.idea-container {
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.idea-container > div > img {
+  width: 600px;
+  margin: 20px 30px;
+  border-radius: 1em;
+}
+
+.idea-container > div > h1 {
+  font-size: 60px;
+  margin-left: 20px;
+  margin-top: 0;
+}
+
+.idea-container > div > p {
+  font-size: 18px;
+  padding: 0px 20px 20px 20px;
+  text-wrap: pretty;
+}
+
+.uber-uns-container {
+  height: 100vh;
+  width: 100%;
+  background-color: snow;
+  display: flex;
+  flex-direction: column; /* Vertikale Anordnung der uberschrift */
+  align-items: center;
+  justify-content: center;
+}
+
+.uber-uns-container > div:first-child {
+  text-align: center;
+}
+
+.uber-uns-container > div:first-child > h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.uber-uns-container > div:nth-child(2),
+.uber-uns-container > div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.uber-uns-container > div:nth-child(2) > div,
+.uber-uns-container > div:nth-child(3) > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 45%;
+  text-align: left;
+  margin: 0 1rem;
+}
+
+.personenbilder {
+  width: 200px;
+  border-radius: 10%;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.kontakt-container {
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column; /* Vertikale Anordnung der uberschrift */
+  align-items: center;
+  justify-content: center;
+}
+
+.kontakt-container > h1 {
+  font-size: 100px;
+  margin-bottom: 0;
+}
+
+.kontakt-container > h3 {
+  font-size: 40px;
+}
+
+#WhatsApp {
+  width: 80%;
+}
+
+.footer-container {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  flex-direction: column; /* Vertikale Anordnung der uberschrift */
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-container > h1 {
+  font-size: 120px;
+  margin-bottom: 2rem;
+  text-decoration: none;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit; /* Behält die Schriftfarbe des Elternelements */
+}
+
+.link:hover {
+  color: #007bff; /* Farbe beim Hover */
+}
+
+@media (max-width: 1620px) {
+  .back > p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1590px) {
+  .back > p {
+    font-size: 10px;
+  }
+}
+
+/* Tablets (zwischen 768px und 1199px) */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* Video im Hintergrund */
+  }
+
+  #video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Video füllt den gesamten Bildschirm ohne Verzerrung */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Video bleibt im Hintergrund */
+  }
+
+  .header-container {
+    z-index: 1; /* Text und Buttons über dem Video */
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Textfarbe auf dem Video */
+  }
+
+  .header-container > div > h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Lesbarkeit verbessern */
+  }
+
+  .header-container > div > p {
+    font-size: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Lesbarkeit verbessern */
+  }
+
+  .button-container {
+    flex-direction: column;
+    z-index: 1; /* Buttons bleiben über dem Video */
+  }
+
+  .Dienstleistungen-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zentriert die Cards in der Mitte */
+    height: auto;
+  }
+
+  .card {
+    transform: none;
+    height: auto;
+    left: 40px;
+    max-width: 90%;
+    margin-bottom: 2rem;
+  }
+
+  .card:hover {
+    transform: none; /* Keine Animation beim Hover */
+  }
+
+  /* Stellt sicher, dass der Text von Vorder- und Rückseite angezeigt wird */
+  .front,
+  .back {
+    position: relative;
+    display: block;
+    backface-visibility: visible; /* Rückseite sichtbar machen */
+    transform: none; /* Keine Drehung der Rückseite */
+  }
+
+  /* Zwei Karten pro Reihe */
+  .card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem; /* Abstand zwischen den Karten */
+  }
+
+  font[color="blue"] {
+    display: none;
+  }
+
+  .back > p {
+    font-size: 16px;
+    margin-top: 0;
+  }
+
+  .front > h5 {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .front > p {
+    margin-left: 2rem;
+  }
+
+  .sinvoll-container {
+    flex-direction: column;
+  }
+
+  .idea-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .uber-uns-container {
+    height: auto;
+  }
+
+  .kontakt-container > h1 {
+    font-size: 70px;
+  }
+
+  .kontakt-container > h3 {
+    font-size: 30px;
+  }
+
+  .kontakt-container > div > a {
+    margin-left: 3rem;
+  }
+}
+
+/* Mobile Geräte (unter 768px) */
+@media (max-width: 767px) {
+  .video-container {
+    position: absolute; /* Ändere zu 'absolute' anstatt 'fixed' für mobiles Verhalten */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* Video bleibt im Hintergrund */
+  }
+
+  #video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Video füllt den gesamten Bildschirm ohne Verzerrung */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Video bleibt im Hintergrund */
+  }
+
+  .header-container {
+    position: relative;
+    z-index: 1; /* Text über dem Video */
+    padding: 1rem;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+
+  .header-container > div > h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Lesbarkeit verbessern */
+  }
+
+  .header-container > div > p {
+    font-size: 1rem;
+    padding-right: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Lesbarkeit verbessern */
+  }
+
+  .navigation {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #header-text {
+    left: 0.5rem;
+  }
+
+  .button-container {
+    flex-direction: column;
+    z-index: 1; /* Buttons bleiben über dem Video */
+  }
+
+  .nav-button-dienstleistung,
+  .nav-button-kontakt,
+  .nav-button-uns {
+    font-size: 16px;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  .button-container button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .Dienstleistungen-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zentriert die Cards in der Mitte */
+    height: auto;
+  }
+
+  .card {
+    transform: none;
+    height: auto;
+    left: 40px;
+    max-width: 90%;
+    margin-bottom: 2rem;
+  }
+
+  .card:hover {
+    transform: none; /* Keine Animation beim Hover */
+  }
+
+  /* Stellt sicher, dass der Text von Vorder- und Rückseite angezeigt wird */
+  .front,
+  .back {
+    position: relative;
+    display: block;
+    backface-visibility: visible; /* Rückseite sichtbar machen */
+    transform: none; /* Keine Drehung der Rückseite */
+  }
+
+  /* Zwei Karten pro Reihe */
+  .card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem; /* Abstand zwischen den Karten */
+  }
+
+  font[color="blue"] {
+    display: none;
+  }
+
+  .back > p {
+    font-size: 16px;
+    margin-top: 0;
+  }
+
+  .front > h5 {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .front > p {
+    margin-left: 2rem;
+  }
+
+  .sinvoll-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .idea-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .uber-uns-container > div:nth-child(2),
+  .uber-uns-container > div:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .uber-uns-container > div:nth-child(2) > div,
+  .uber-uns-container > div:nth-child(3) > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    text-align: left;
+    margin: 0rem 3rem;
+  }
+
+  .uber-uns-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .kontakt-container > h1 {
+    font-size: 40px;
+  }
+
+  .kontakt-container > h3 {
+    font-size: 20px;
+  }
+
+  .kontakt-container > div > a {
+    margin-left: 3rem;
+  }
+
+  .footer-container > h1 {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 700px) {
+  .navigation {
+    height: 30px;
+  }
+
+  #header-text {
+    font-size: 20px;
+    margin-top: 1.2rem;
+  }
+
+  #nav-button-list {
+    display: flex;
+    gap: 0.2rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 610px) {
+  .header-container > div > h1 {
+    font-size: 30px;
+  }
+
+  .header-container > div > p {
+    font-size: 15px;
+  }
+
+  .Dienstleistungen-container > div > h2 {
+    font-size: 40px;
+  }
+
+  .card {
+    left: 15px;
+  }
+
+  .sinvoll-container > div > h1 {
+    font-size: 40px;
+  }
+
+  .idea-container > div > h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 580px) {
+  .kontakt-container > h1 {
+    font-size: 30px;
+  }
+}
